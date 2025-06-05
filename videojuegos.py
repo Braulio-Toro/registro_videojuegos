@@ -21,12 +21,12 @@ while True:
         codigo=int(input("Ingrese el código del videojuego: "))
         nombre=input("Ingrese el nombre del videojuego: ")
         genero=input("Ingrese el género del videojuego: ")
-        print(f"""PLATAFORMAS DISPONIBLES: 
-              1) PC
-              2) PS5
-              3) Xbox Series X
-              4) Nintendo Switch
-              """)
+        print(f"""\nPLATAFORMAS DISPONIBLES: 
+1) PC
+2) PS5
+3) Xbox Series X
+4) Nintendo Switch
+""")
         plataforma_codigo=int(input("Seleccione el número de la plataforma: "))
         plataforma=plataformas[plataforma_codigo - 1]
         videojuego={
@@ -38,7 +38,16 @@ while True:
         videojuegos.append(videojuego)
         print("Videojuego registrado correctamente.")
     elif opc=="2":
-        pass
+        if len(videojuegos)==0:
+            print("No hay videojuegos registrados.")
+        else:
+            print("\n--- LISTA DE VIDEOJUEGOS ---\n")
+            for v in videojuegos:
+                for key in v:
+                    print(key, "=>", v[key])
+            print((f"-"*30))
+            print("\nPresione cualquier tecla para continuar...")
+            msvcrt.getch()
     elif opc=="3":
         pass
     elif opc=="4":
