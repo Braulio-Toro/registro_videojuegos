@@ -71,7 +71,7 @@ while True:
         codigo=int(input("Ingrese el código del videojuego que desea eliminar: "))
         eliminado=False
         for v in videojuegos:
-            if v[codigo]==codigo
+            if v[codigo]==codigo:
                 videojuegos.remove(v)
                 print("Videojuego eliminado correctamente.")
                 eliminado=True
