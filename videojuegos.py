@@ -49,8 +49,27 @@ while True:
             print("\nPresione cualquier tecla para continuar...")
             msvcrt.getch()
     elif opc=="3":
-        pass
+        codigo=int(input("Ingrese el código del juego a modificar: "))
+        encontrado=False
+        for v in videojuego:
+            if v[codigo]==codigo:
+                v["nombre"]=input("Nuevo Nombre: ")
+                v["genero"]=input("Nuevo género: ")
+                print(f"""\nPLATAFORMAS DISPONIBLES: 
+1) PC
+2) PS5
+3) Xbox Series X
+4) Nintendo Switch
+""")
+                plataforma_codigo=int(input("Seleccione el número de la plataforma: "))
+                v["plataforma"]=plataformas[plataforma_codigo - 1]
+                print("Videojuego modificado correctamente.")
+                encontrado=True
+            if not encontrado:
+                print("Videojuego no encontrado.")
     elif opc=="4":
+        pass
+    elif opc=="5":
         print("Saliendo del programa.")
         break
     else:
