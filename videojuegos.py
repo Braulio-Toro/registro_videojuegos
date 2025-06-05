@@ -1,4 +1,4 @@
-#Consolas de videojuegos
+# Consolas de videojuegos
 import os, time, msvcrt
 
 menu=f"""\n--- MENÚ DE VIDEOJUEGOS ---
@@ -10,7 +10,7 @@ menu=f"""\n--- MENÚ DE VIDEOJUEGOS ---
 {"-"*30}"""
 videojuegos=[]
 
-plataformas=("PC", "PS5", "Xbox Series X", "Nimtendo Switch")
+plataformas=("PC", "PS5", "Xbox Series X", "Nintendo Switch")
 
 while True:
     os.system("cls || clear")
@@ -68,7 +68,7 @@ while True:
             for v in videojuegos:
                 for key in v:
                     print(key, "=>", v[key])
-                print((f"-"*30))
+                print(f"-"*30)
         print("\nPresione cualquier tecla para continuar...")
         msvcrt.getch()
     elif opc=="3":
@@ -79,20 +79,20 @@ while True:
             except ValueError:
                 print("ERROR! Debe ingresar un valor válido.\n")
         encontrado=False
-        for v in videojuego:
-            if v[codigo]==codigo:
+        for v in videojuegos:
+            if v["codigo"]==codigo:
                 while True:
                     v["nombre"]=input("Nuevo Nombre: ").strip().title()
-                    if len(nombre)<3:
+                    if len(v["nombre"])<3:
                         print("El nombre debe tener más de dos letras")
                     else:
                         break
                 while True:
                     v["genero"]=input("Nuevo género: ").strip().title()
-                    if len(genero)<3:
+                    if len(v["genero"])<3:
                         print("El nombre debe tener más de dos letras.\n")
                     else:
-                        break                  
+                        break                   
                 print(f"""\nPLATAFORMAS DISPONIBLES: 
 1) PC
 2) PS5
@@ -109,8 +109,9 @@ while True:
                 v["plataforma"]=plataformas[plataforma_codigo - 1]
                 print("Videojuego modificado correctamente.")
                 encontrado=True
-            if not encontrado:
-                print("Videojuego no encontrado.")
+                break
+        if not encontrado:
+            print("Videojuego no encontrado.")
     elif opc=="4":
         while True:
             try:
@@ -119,16 +120,16 @@ while True:
             except ValueError:
                 print("ERROR! Debe ingresar un valor válido.\n")
                 time.sleep(2)
-            eliminado=False
-            for v in videojuegos:
-                if v[codigo]==codigo:
-                    videojuegos.remove(v)
-                    print("Videojuego eliminado correctamente.")
-                    eliminado=True
-                    break
-                if not eliminado:
-                    print("Videojuego no encontrado.")
-            time.sleep(3)
+        eliminado=False
+        for v in videojuegos:
+            if v["codigo"]==codigo:
+                videojuegos.remove(v)
+                print("Videojuego eliminado correctamente.")
+                eliminado=True
+                break
+        if not eliminado:
+            print("Videojuego no encontrado.")
+        time.sleep(3)
     elif opc=="5":
         print("Saliendo del programa.")
         time.sleep(0.5)
@@ -136,4 +137,3 @@ while True:
     else:
         print("Opción invalida")
         time.sleep(3)
-        
