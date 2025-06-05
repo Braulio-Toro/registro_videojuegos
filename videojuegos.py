@@ -47,11 +47,14 @@ while True:
         while True:
             try:
                 plataforma_codigo=int(input("Seleccione el número de la plataforma: "))
-                break
+                plataforma=plataformas[plataforma_codigo - 1]
+                if 1<=plataforma_codigo<=4:
+                    break
+                else:
+                    print("Debe ser un número entre 1 y 4")
             except ValueError:
                 print("ERROR! Debe ingresar un valor válido.\n")
             time.sleep(1)
-        plataforma=plataformas[plataforma_codigo - 1]
         videojuego={
             "codigo":codigo,
             "nombre":nombre,
@@ -102,10 +105,14 @@ while True:
                 while True:
                     try:
                         plataforma_codigo=int(input("Seleccione el número de la plataforma: "))
-                        break
+                        plataforma=plataformas[plataforma_codigo - 1]
+                        if 1<=plataforma_codigo<=4:
+                            break
+                        else:
+                            print("Debe ser un número entre 1 y 4")
                     except ValueError:
                         print("ERROR! Debe ingresar un valor válido.\n")
-                        time.sleep(2)
+                    time.sleep(2)
                 v["plataforma"]=plataformas[plataforma_codigo - 1]
                 print("Videojuego modificado correctamente.")
                 encontrado=True
